@@ -1,0 +1,364 @@
+:root {
+    --dark-blue: #0d1117;
+    --medium-blue: #1b2531;
+    --light-blue: #2196f3;
+    --white: #ffffff;
+    --gray-100: #f5f5f5;
+    --gray-200: #e0e0e0;
+    --red: #ff4444;
+    --green: #4CAF50;
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.calendar-container {
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    background: var(--medium-blue);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* espaço entre os botões */
+    margin-top: 16px; 
+}
+
+.save-button {
+    background-color: var(--green);
+    color: var(--white);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+    transform: translateY(-1px);
+}
+
+.save-button:active {
+    transform: translateY(1px);
+}
+
+.close-month-button {
+    background-color: var(--red);
+    color: var(--white);
+    padding: 8px 16px; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px; /* espaço entre os botões */
+    transition: all 0.3s ease;
+}
+
+.close-month-button:hover {
+    background-color: #cc0000;
+    transform: translateY(-1px);
+}
+
+.close-month-button:active {
+    transform: translateY(1px);
+}
+
+.users-legend {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    background: var(--medium-blue);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.user-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.user-color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+/* Alinhamento do título */
+.page-title {
+    color: var(--light-blue);
+    font-size: 2rem;
+    margin: 0 0 20px 0;
+    padding-left: 15px;
+}
+
+
+.sidebar {
+    width: 250px;
+    background: var(--medium-blue);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.tasks-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.section-title {
+    color: var(--light-blue);
+    margin: 0 0 15px 0;
+    font-size: 1.2rem;
+}
+
+.task-item {
+    padding: 10px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    cursor: move;
+    transition: all 0.2s;
+}
+
+.task-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.calendar {
+    flex: 1;
+    background: var(--medium-blue);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.calendar-header button {
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.calendar-header button:hover {
+    background: #1976d2;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-header-nav {
+    display: flex;
+    justify-content: center; /* centraliza título horizontalmente */
+    align-items: center;
+    gap: 20px; /* espaço entre título e setas */
+    margin-bottom: 15px;
+}
+
+.calendar-header-nav h2 {
+    color: var(--light-blue);
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.calendar-header-nav button {
+    background: var(--light-blue);
+    border: none;
+    border-radius: 4px;
+    color: var(--white);
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.calendar-header-nav button:hover {
+    background: #1976d2;
+}
+
+.calendar-header-nav h2::first-letter {
+    text-transform: uppercase;
+}
+
+
+.calendar-header-cell {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.calendar-cell {
+    min-height: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.calendar-cell:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.calendar-cell.empty {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.calendar-cell.non-working-day {
+    background: rgba(255, 255, 255, 0.02);
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.day-number {
+    font-size: 0.9rem;
+    color: var(--gray-200);
+    margin-bottom: 5px;
+}
+
+.task-container {
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.assigned-task {
+    padding: 4px 8px;
+    margin: 4px 0;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+    transition: all 0.2s;
+}
+
+.assigned-task:hover {
+    filter: brightness(1.1);
+}
+
+.delete-task {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: all 0.2s;
+}
+
+.delete-task:hover {
+    background: rgba(255, 0, 0, 0.2);
+    color: var(--white);
+}
+
+.user-select-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--medium-blue);
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h3 {
+    margin: 0 0 15px 0;
+    color: var(--light-blue);
+}
+
+.user-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user-option {
+    padding: 10px;
+    background: transparent;
+    border: 2px solid;
+    border-radius: 4px;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+}
+
+.user-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
